@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobix — شغلك يبدأ بفيديو</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12261e;
+        --paper: #f6f4ee;
+        --line: #132a1f;
+        --moss: #2f5d4c;
+        --moss-soft: #dbe6df;
+        --clay: #e8613c;
+        --card: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Tajawal", sans-serif;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      .brand {
+        font-family: "Cairo", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* NAV */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(246, 244, 238, 0.88);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(19, 42, 31, 0.1);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+      .brand {
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .brand .dot {
+        width: 9px;
+        height: 9px;
+        background: var(--clay);
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .navlinks {
+        display: flex;
+        gap: 32px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .navlinks a {
+        opacity: 0.75;
+        transition: opacity 0.2s;
+      }
+      .navlinks a:hover {
+        opacity: 1;
+      }
+      .cta-btn {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 10px 22px;
+        border-radius: 100px;
+        font-weight: 700;
+        font-size: 14px;
+        display: inline-block;
+        transition:
+          transform 0.2s,
+          background 0.2s;
+      }
+      .cta-btn:hover {
+        background: var(--clay);
+        transform: translateY(-1px);
+      }
+      .cta-outline {
+        border: 1.5px solid var(--ink);
+        padding: 9px 20px;
+        border-radius: 100px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      @media (max-width: 820px) {
+        .navlinks {
+          display: none;
+        }
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        padding: 90px 0 60px;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 56px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--moss-soft);
+        color: var(--moss);
+        padding: 7px 16px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+      h1.hero-title {
+        font-size: clamp(34px, 5vw, 54px);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 20px;
+      }
+      h1.hero-title .hl {
+        color: var(--clay);
+      }
+      .hero-sub {
+        font-size: 17px;
+        color: #3c4c44;
+        max-width: 480px;
+        margin-bottom: 32px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      /* phone mock with video-cv concept */
+      .phone-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .phone {
+        width: 270px;
+        height: 540px;
+        background: var(--ink);
+        border-radius: 36px;
+        padding: 12px;
+        box-shadow: 0 30px 60px -20px rgba(19, 42, 31, 0.35);
+        position: relative;
+      }
+      .screen {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          160deg,
+          #1c3b2c 0%,
+          #2f5d4c 55%,
+          #3c6f5a 100%
+        );
+        border-radius: 26px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 18px;
+      }
+      .screen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 255, 255, 0.12),
+          transparent 55%
+        );
+      }
+      .play-btn {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      }
+      .play-btn::after {
+        content: "";
+        border-style: solid;
+        border-width: 9px 0 9px 15px;
+        border-color: transparent transparent transparent var(--ink);
+        margin-right: -3px;
+      }
+      .screen-card {
+        position: relative;
+        z-index: 2;
+        background: rgba(18, 38, 30, 0.55);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 14px 16px;
+        color: #fff;
+      }
+      .screen-card .name {
+        font-weight: 700;
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+      .screen-card .role {
+        font-size: 12.5px;
+        opacity: 0.8;
+      }
+      .badge-age {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        z-index: 2;
+        background: var(--clay);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 100px;
+      }
+      .float-card {
+        position: absolute;
+        background: var(--card);
+        border-radius: 14px;
+        box-shadow: 0 14px 30px -10px rgba(19, 42, 31, 0.25);
+        padding: 12px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .float-card.stars {
+        top: 60px;
+        right: -18px;
+        color: var(--ink);
+      }
+      .float-card.stars .stars-row {
+        color: #e8a13c;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .float-card.apply {
+        bottom: 40px;
+        left: -24px;
+        color: var(--moss);
+      }
+      .float-card .ico {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--moss-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+      }
+      @media (max-width: 900px) {
+        .float-card {
+          display: none;
+        }
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 88px 0;
+      }
+      .section-head {
+        max-width: 600px;
+        margin-bottom: 52px;
+      }
+      .section-tag {
+        color: var(--clay);
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .section-head h2 {
+        font-size: clamp(26px, 3.4vw, 38px);
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      /* FEATURES GRID */
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 900px) {
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+      }
+      .feature-card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 28px 24px;
+        border: 1px solid rgba(19, 42, 31, 0.08);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 34px -18px rgba(19, 42, 31, 0.3);
+      }
+      .feature-num {
+        font-family: "Cairo", sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        color: var(--moss);
+        background: var(--moss-soft);
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+      }
+      .feature-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .feature-card p {
+        font-size: 14.5px;
+        color: #4a5850;
+      }
+
+      /* HOW IT WORKS - two columns worker/employer */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      @media (max-width: 820px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+      .panel {
+        border-radius: 24px;
+        padding: 36px 32px;
+      }
+      .panel.worker {
+        background: var(--ink);
+        color: #f6f4ee;
+      }
+      .panel.employer {
+        background: var(--card);
+        border: 1px solid rgba(19, 42, 31, 0.1);
+      }
+      .panel h3 {
+        font-size: 21px;
+        font-weight: 800;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .panel .tag-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--clay);
+      }
+      .step {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 18px;
+        align-items: flex-start;
+      }
+      .step .n {
+        flex: 0 0 auto;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12.5px;
+        font-weight: 800;
+      }
+      .panel.worker .n {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      .panel.employer .n {
+        background: var(--moss-soft);
+        color: var(--moss);
+      }
+      .step p {
+        font-size: 14.5px;
+      }
+      .panel.worker .step p {
+        color: #dfe6e1;
+      }
+      .panel.employer .step p {
+        color: #42524a;
+      }
+
+      /* GIG STRIP */
+      .gig-strip {
+        background: var(--moss);
+        color: #fff;
+        border-radius: 28px;
+        padding: 48px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+      }
+      @media (max-width: 760px) {
+        .gig-strip {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+      .gig-strip h2 {
+        font-size: clamp(22px, 3vw, 30px);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .gig-strip p {
+        opacity: 0.85;
+        max-width: 420px;
+      }
+      .gig-chip {
+        background: rgba(255, 255, 255, 0.14);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 12.5px;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 14px;
+      }
+      .gig-cta {
+        background: var(--clay);
+        color: #fff;
+        padding: 14px 30px;
+        border-radius: 100px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      /* RATINGS SECTION */
+      .rating-showcase {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      @media (max-width: 760px) {
+        .rating-showcase {
+          grid-template-columns: 1fr;
+        }
+      }
+      .rate-card {
+        background: var(--card);
+        border: 1px solid rgba(19, 42, 31, 0.08);
+        border-radius: 20px;
+        padding: 26px;
+      }
+      .rate-card .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .rate-card .who {
+        font-weight: 800;
+        font-size: 15px;
+      }
+      .rate-card .stars {
+        color: #e8a13c;
+        font-size: 16px;
+        letter-spacing: 2px;
+      }
+      .rate-card .quote {
+        font-size: 14px;
+        color: #4a5850;
+      }
+
+      /* FOOTER CTA */
+      .final-cta {
+        text-align: center;
+        padding: 100px 0;
+      }
+      .final-cta h2 {
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+      .final-cta p {
+        color: #4a5850;
+        margin-bottom: 34px;
+      }
+      .final-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        border-top: 1px solid rgba(19, 42, 31, 0.1);
+        padding: 32px 0;
+        font-size: 13px;
+        color: #6b7a72;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="brand"><span class="dot"></span>Jobix</div>
+        <div class="navlinks">
+          <a href="#how">إزاي بيشتغل</a>
+          <a href="#gigs">شغل يومي</a>
+          <a href="#ratings">التقييمات</a>
+        </div>
+        <a
+          href="#"
+          class="cta-btn"
+          onclick="
+            openAuth('signup');
+            return false;
+          "
+          >ابدأ دلوقتي</a
+        >
+        <a
+          href="#"
+          id="loginLink"
+          style="margin-right: 14px; font-weight: 700; font-size: 14px"
+          onclick="
+            openAuth('login');
+            return false;
+          "
+          >تسجيل الدخول</a
+        >
+      </nav>
+    </header>
+
+    <!-- ===== Auth Modal ===== -->
+    <div
+      id="authOverlay"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(19, 42, 31, 0.55);
+        backdrop-filter: blur(4px);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          border-radius: 20px;
+          padding: 32px;
+          width: 100%;
+          max-width: 380px;
+          position: relative;
+        "
+      >
+        <button
+          onclick="closeAuth()"
+          style="
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+          "
+        >
+          ×
+        </button>
+        <h3
+          id="authTitle"
+          style="
+            font-family: &quot;Cairo&quot;, sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 18px;
+          "
+        >
+          تسجيل الدخول
+        </h3>
+
+        <div
+          id="authMsg"
+          style="
+            display: none;
+            font-size: 13px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+          "
+        ></div>
+
+        <div id="signupOnlyFields" style="display: none">
+          <label
+            style="
+              font-size: 13px;
+              font-weight: 700;
+              display: block;
+              margin-bottom: 6px;
+            "
+            >أنا:</label
+          >
+          <div style="display: flex; gap: 10px; margin-bottom: 16px">
+            <label
+              style="
+                flex: 1;
+                border: 1.5px solid #ddd;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              <input type="radio" name="roleChoice" value="worker" checked />
+              عامل / باحث عن شغل
+            </label>
+            <label
+              style="
+                flex: 1;
+                border: 1.5px solid #ddd;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              <input type="radio" name="roleChoice" value="employer" /> صاحب شغل
+            </label>
+          </div>
+        </div>
+
+        <label
+          style="
+            font-size: 13px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+          "
+          >اسم المستخدم</label
+        >
+        <input
+          id="authUsername"
+          type="text"
+          placeholder="مثال: mohamed1"
+          style="
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            font-family: inherit;
+            font-size: 14px;
+          "
+        />
+
+        <label
+          style="
+            font-size: 13px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+          "
+          >كلمة المرور</label
+        >
+        <input
+          id="authPassword"
+          type="password"
+          placeholder="******"
+          style="
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-family: inherit;
+            font-size: 14px;
+          "
+        />
+
+        <button
+          id="authSubmitBtn"
+          onclick="submitAuth()"
+          style="
+            width: 100%;
+            background: var(--ink);
+            color: #fff;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: inherit;
+          "
+        >
+          دخول
+        </button>
+
+        <p
+          style="
+            text-align: center;
+            font-size: 13px;
+            margin-top: 16px;
+            color: #666;
+          "
+        >
+          <span id="authSwitchText">لسه معندكش حساب؟</span>
+          <a
+            href="#"
+            id="authSwitchLink"
+            onclick="
+              toggleAuthMode();
+              return false;
+            "
+            style="color: var(--clay); font-weight: 700"
+            >سجّل دلوقتي</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">🎬 خلي فيديو 30 ثانية يعرّفك، مش ورقة</span>
+          <h1 class="hero-title">
+            اعرض <span class="hl">نفسك</span>، مش بس CV
+          </h1>
+          <p class="hero-sub">
+            Jobix منصة الشغل اللي بتربط الشباب بأصحاب الشغل بفيديو قصير، مش سيرة
+            ذاتية جامدة. اتفلتر بالسن، شوف الوظيفة بصوت وصورة، وقدّم بضغطة
+            واحدة.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="cta-btn">سجّل فيديوك</a>
+            <a href="#how" class="cta-outline">أنا صاحب شغل</a>
+          </div>
+        </div>
+        <div class="phone-wrap">
+          <div class="badge-age">مناسب لسن 18+</div>
+          <div class="float-card stars">
+            <span class="ico">★</span>
+            <div>
+              <div class="stars-row">★★★★★</div>
+              <div style="font-size: 11px; color: #6b7a72">
+                تقييم صاحب الشغل
+              </div>
+            </div>
+          </div>
+          <div class="phone">
+            <div class="screen">
+              <div class="play-btn"></div>
+              <div class="screen-card">
+                <div class="name">مريم أحمد، 19 سنة</div>
+                <div class="role">بتقدّم على: مبيعات بارت-تايم</div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card apply">
+            <span class="ico">⚡</span> تقديم بضغطة واحدة
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">إزاي المنصة شغالة</span>
+          <h2>خطوتين بسيطين، طرف يعرض وطرف يشوف</h2>
+        </div>
+        <div class="two-col">
+          <div class="panel worker">
+            <h3><span class="tag-dot"></span>لو أنت شايف شغل</h3>
+            <div class="step">
+              <div class="n">1</div>
+              <p>
+                اعمل فيديو 30 ثانية تعرّف فيه نفسك وشطارتك، بدل الاعتماد على CV
+                بس.
+              </p>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <p>حدد سنّك، وشوف بس الوظائف المفتوحة لعمرك (17، 18، 20...).</p>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <p>قدّم بضغطة واحدة، وكمل التواصل على شات أو واتساب مباشرة.</p>
+            </div>
+            <div class="step">
+              <div class="n">4</div>
+              <p>بعد الشغل، قيّم صاحب العمل زي ما هو بيقيّمك.</p>
+            </div>
+          </div>
+          <div class="panel employer">
+            <h3><span class="tag-dot"></span>لو أنت صاحب شغل</h3>
+            <div class="step">
+              <div class="n">1</div>
+              <p>ارفع فيديو قصير تشرح فيه الوظيفة، المرتب، ومواعيد الدوام.</p>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <p>
+                حدد الفئة العمرية المطلوبة عشان يوصلك المرشحين المناسبين بس.
+              </p>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <p>شوف فيديوهات المتقدمين، واختار اللي يعجبك بسرعة.</p>
+            </div>
+            <div class="step">
+              <div class="n">4</div>
+              <p>قيّم العامل بعد الشغل، وابني سمعة موثوقة على المنصة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">مميزات المنصة</span>
+          <h2>مبنية حوالين اللي فعلاً بيهم الشباب وأصحاب الشغل</h2>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-num">1</div>
+            <h3>فيديو بدل الورق</h3>
+            <p>
+              30 ثانية كفاية توصّل شخصيتك وحماسك، حاجة الـCV العادي مش بيعملها.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">2</div>
+            <h3>فلترة بالسن</h3>
+            <p>
+              كل شاب بيشوف بس الوظائف المسموحة لسنّه، من غير لخبطة أو وقت ضايع.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">3</div>
+            <h3>تفاصيل واضحة من صاحب الشغل</h3>
+            <p>فيديو من صاحب الشغل نفسه بيشرح المرتب والمواعيد قبل ما تقدّم.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">4</div>
+            <h3>تقييم من الاتجاهين</h3>
+            <p>
+              العامل يقيّم صاحب الشغل، وصاحب الشغل يقيّم العامل، عشان ثقة
+              حقيقية.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">5</div>
+            <h3>تقديم فوري</h3>
+            <p>ضغطة واحدة للتقديم، وتواصل مباشر عبر شات أو واتساب.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">6</div>
+            <h3>شغل يومي وأسبوعي</h3>
+            <p>مش بس وظائف دائمة، في قسم كامل لفرص الشغل السريع.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gigs">
+      <div class="wrap">
+        <div class="gig-strip">
+          <div>
+            <span class="gig-chip">قسم جديد</span>
+            <h2>محتاج فلوس الأسبوع ده؟</h2>
+            <p>
+              شوف شغل يومي أو أسبوعي جنب الوظائف الدائمة، وابدأ اشتغل من بكرة.
+            </p>
+          </div>
+          <a href="#" class="gig-cta">شوف الشغل اليومي</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ratings">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">التقييمات</span>
+          <h2>ثقة متبادلة بين العامل وصاحب الشغل</h2>
+        </div>
+        <div class="rating-showcase">
+          <div class="rate-card">
+            <div class="top">
+              <span class="who">عمر، 20 سنة — عامل</span
+              ><span class="stars">★★★★★</span>
+            </div>
+            <p class="quote">
+              صاحب المحل كان واضح من الفيديو من أول يوم، المرتب والمواعيد زي ما
+              اتقال بالظبط.
+            </p>
+          </div>
+          <div class="rate-card">
+            <div class="top">
+              <span class="who">كافيه النخبة — صاحب شغل</span
+              ><span class="stars">★★★★★</span>
+            </div>
+            <p class="quote">
+              فيديو المتقدمة خلاني أعرف شخصيتها قبل المقابلة، وفرت عليا وقت
+              كتير.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap">
+        <h2>جاهز تبدأ على Jobix؟</h2>
+        <p>
+          سجّل فيديوك دلوقتي، أو ارفع وظيفتك واستقبل مرشحين مناسبين لسنّك
+          المطلوب.
+        </p>
+        <div class="final-actions">
+          <a href="#" class="cta-btn">سجّل كـ باحث عن شغل</a>
+          <a href="#" class="cta-outline">سجّل كـ صاحب شغل</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div
+        class="wrap"
+        style="
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 12px;
+          width: 100%;
+        "
+      >
+        <div class="brand" style="font-size: 16px">
+          <span class="dot"></span>Jobix
+        </div>
+        <div>© 2026 Jobix — كل الحقوق محفوظة</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+      // ============================================
+      // إعدادات الاتصال بـ Supabase
+      // ⚠️ هنا لازم يتحط الـ anon/public key بس (مش service_role)
+      // Dashboard > Settings > API > anon public
+      // ============================================
+
+      const SUPABASE_URL = "https://wgcfajrwfmunwoqmneww.supabase.co";
+      const SUPABASE_ANON_KEY =
+        "sb_publishable_suydYW04acUwgjkSsBwT3w_-7z650gm";
+
+      const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY,
+      );
+
+      let authMode = "login"; // 'login' | 'signup'
+
+      function openAuth(mode) {
+        authMode = mode;
+        document.getElementById("authOverlay").style.display = "flex";
+        updateAuthUI();
+      }
+      function closeAuth() {
+        document.getElementById("authOverlay").style.display = "none";
+        document.getElementById("authMsg").style.display = "none";
+      }
+      function toggleAuthMode() {
+        authMode = authMode === "login" ? "signup" : "login";
+        updateAuthUI();
+      }
+      function updateAuthUI() {
+        const isSignup = authMode === "signup";
+        document.getElementById("authTitle").textContent = isSignup
+          ? "إنشاء حساب جديد"
+          : "تسجيل الدخول";
+        document.getElementById("signupOnlyFields").style.display = isSignup
+          ? "block"
+          : "none";
+        document.getElementById("authSubmitBtn").textContent = isSignup
+          ? "إنشاء الحساب"
+          : "دخول";
+        document.getElementById("authSwitchText").textContent = isSignup
+          ? "عندك حساب بالفعل؟"
+          : "لسه معندكش حساب؟";
+        document.getElementById("authSwitchLink").textContent = isSignup
+          ? "سجّل دخول"
+          : "سجّل دلوقتي";
+      }
+
+      function showAuthMsg(text, ok) {
+        const el = document.getElementById("authMsg");
+        el.style.display = "block";
+        el.style.background = ok ? "#dbe6df" : "#fbdcd4";
+        el.style.color = ok ? "#2f5d4c" : "#a3341c";
+        el.textContent = text;
+      }
+
+      // بنولّد إيميل داخلي من اسم المستخدم لأن Supabase Auth محتاج إيميل
+      function usernameToEmail(username) {
+        return (
+          username.trim().toLowerCase().replace(/\s+/g, "") + "@jobix.local"
+        );
+      }
+
+      async function submitAuth() {
+        const username = document.getElementById("authUsername").value.trim();
+        const password = document.getElementById("authPassword").value;
+
+        if (!username || !password) {
+          showAuthMsg("من فضلك املأ اسم المستخدم وكلمة المرور", false);
+          return;
+        }
+        if (password.length < 6) {
+          showAuthMsg("كلمة المرور لازم تكون 6 أحرف/أرقام على الأقل", false);
+          return;
+        }
+
+        const email = usernameToEmail(username);
+
+        if (authMode === "signup") {
+          const role = document.querySelector(
+            'input[name="roleChoice"]:checked',
+          ).value;
+          const { data, error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: { data: { username, role } },
+          });
+          if (error) {
+            showAuthMsg("حصل خطأ: " + error.message, false);
+            return;
+          }
+          showAuthMsg("تم إنشاء الحساب بنجاح! جاري تسجيل دخولك...", true);
+          setTimeout(() => {
+            closeAuth();
+            refreshAuthState();
+          }, 1200);
+        } else {
+          const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email,
+            password,
+          });
+          if (error) {
+            showAuthMsg("اسم المستخدم أو كلمة المرور غلط", false);
+            return;
+          }
+          showAuthMsg("تم تسجيل الدخول بنجاح!", true);
+          setTimeout(() => {
+            closeAuth();
+            refreshAuthState();
+          }, 800);
+        }
+      }
+
+      async function refreshAuthState() {
+        const {
+          data: { session },
+        } = await supabaseClient.auth.getSession();
+        const loginLink = document.getElementById("loginLink");
+        if (session) {
+          const { data: profile } = await supabaseClient
+            .from("profiles")
+            .select("username, role")
+            .eq("id", session.user.id)
+            .single();
+          loginLink.textContent = profile
+            ? `مرحبًا، ${profile.username}`
+            : "حسابي";
+          loginLink.onclick = async (e) => {
+            e.preventDefault();
+            await supabaseClient.auth.signOut();
+            refreshAuthState();
+          };
+        } else {
+          loginLink.textContent = "تسجيل الدخول";
+          loginLink.onclick = (e) => {
+            e.preventDefault();
+            openAuth("login");
+          };
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", refreshAuthState);
+    </script>
+  </body>
+</html>
