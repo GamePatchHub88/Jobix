@@ -1999,6 +1999,10 @@
       // ============================================
       async function openDashboard() {
         if (!requireLogin()) return;
+        if (!currentProfile) {
+          alert("حصلت مشكلة في تحميل بيانات حسابك. جرب تسجل خروج وتسجل دخول تاني.");
+          return;
+        }
         document.getElementById("dashOverlay").classList.add("open");
         const content = document.getElementById("dashContent");
         content.innerHTML = '<div class="empty-state">جاري التحميل...</div>';
