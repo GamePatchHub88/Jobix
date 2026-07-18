@@ -611,6 +611,319 @@
         flex-wrap: wrap;
         gap: 12px;
       }
+
+      /* ===== نظام الوظائف الفعلي ===== */
+      .jobs-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 30px;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        background: var(--moss-soft);
+        padding: 5px;
+        border-radius: 100px;
+      }
+      .tab-btn {
+        border: none;
+        background: transparent;
+        padding: 9px 18px;
+        border-radius: 100px;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--moss);
+        cursor: pointer;
+      }
+      .tab-btn.active {
+        background: var(--ink);
+        color: #fff;
+      }
+      .jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 900px) {
+        .jobs-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .jobs-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .job-card {
+        background: var(--card);
+        border: 1px solid rgba(19, 42, 31, 0.08);
+        border-radius: 18px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .job-card .cat {
+        align-self: flex-start;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 4px 11px;
+        border-radius: 100px;
+        background: var(--moss-soft);
+        color: var(--moss);
+      }
+      .job-card .cat.gig {
+        background: #fbe3d8;
+        color: var(--clay);
+      }
+      .job-card h3 {
+        font-size: 17px;
+        font-weight: 800;
+      }
+      .job-card .meta {
+        font-size: 13px;
+        color: #4a5850;
+      }
+      .job-card .meta b {
+        color: var(--ink);
+      }
+      .job-card .age-tag {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--moss);
+      }
+      .job-card .apply-btn {
+        margin-top: 6px;
+        background: var(--ink);
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 13.5px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .job-card .apply-btn:hover {
+        background: var(--clay);
+      }
+      .job-card .apply-btn:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .empty-state {
+        text-align: center;
+        color: #6b7a72;
+        font-size: 14px;
+        padding: 40px 0;
+        grid-column: 1/-1;
+      }
+
+      /* ===== مودالز عامة ===== */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(19, 42, 31, 0.55);
+        backdrop-filter: blur(4px);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal-box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        width: 100%;
+        max-width: 460px;
+        max-height: 88vh;
+        overflow-y: auto;
+        position: relative;
+      }
+      .modal-box .close-x {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .modal-box h3 {
+        font-family: "Cairo", sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        margin-bottom: 18px;
+      }
+      .field-label {
+        font-size: 13px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .field-input,
+      .field-select,
+      .field-textarea {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1.5px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 14px;
+        font-family: inherit;
+        font-size: 14px;
+        background: #fff;
+      }
+      .field-textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .row-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .submit-btn {
+        width: 100%;
+        background: var(--ink);
+        color: #fff;
+        padding: 13px;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .submit-btn:hover {
+        background: var(--clay);
+      }
+      .msg-box {
+        display: none;
+        font-size: 13px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        margin-bottom: 14px;
+      }
+      .stars-input {
+        display: flex;
+        gap: 6px;
+        font-size: 30px;
+        margin-bottom: 16px;
+        cursor: pointer;
+        color: #ddd;
+      }
+      .stars-input span.active {
+        color: #e8a13c;
+      }
+
+      /* ===== لوحة التحكم ===== */
+      .dash-item {
+        border: 1px solid rgba(19, 42, 31, 0.1);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+      .dash-item .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .dash-item .head b {
+        font-size: 14.5px;
+      }
+      .status-pill {
+        font-size: 11px;
+        font-weight: 800;
+        padding: 3px 10px;
+        border-radius: 100px;
+      }
+      .status-pill.pending {
+        background: #fde9c8;
+        color: #8a5a00;
+      }
+      .status-pill.accepted {
+        background: var(--moss-soft);
+        color: var(--moss);
+      }
+      .status-pill.rejected {
+        background: #fbdcd4;
+        color: #a3341c;
+      }
+      .status-pill.completed {
+        background: var(--ink);
+        color: #fff;
+      }
+      .mini-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .mini-btn {
+        border: none;
+        padding: 7px 14px;
+        border-radius: 100px;
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .mini-btn.accept {
+        background: var(--moss);
+        color: #fff;
+      }
+      .mini-btn.reject {
+        background: #fbdcd4;
+        color: #a3341c;
+      }
+      .mini-btn.complete {
+        background: var(--ink);
+        color: #fff;
+      }
+      .mini-btn.whatsapp {
+        background: #25d366;
+        color: #fff;
+      }
+      .mini-btn.rate {
+        background: var(--clay);
+        color: #fff;
+      }
+      .dash-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 18px;
+        border-bottom: 1px solid #eee;
+      }
+      .dash-tab {
+        border: none;
+        background: none;
+        padding: 10px 4px;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 13.5px;
+        color: #6b7a72;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+      }
+      .dash-tab.active {
+        color: var(--ink);
+        border-bottom-color: var(--clay);
+      }
+      .rating-line {
+        font-size: 12.5px;
+        color: var(--moss);
+        font-weight: 700;
+        margin-top: 2px;
+      }
     </style>
   </head>
   <body>
@@ -618,32 +931,53 @@
       <nav>
         <div class="brand"><span class="dot"></span>Jobix</div>
         <div class="navlinks">
+          <a href="#jobs-list">الوظائف</a>
           <a href="#how">إزاي بيشتغل</a>
-          <a href="#gigs">شغل يومي</a>
           <a href="#ratings">التقييمات</a>
         </div>
-        <button id="installBtn" class="install-btn" onclick="installApp()">
-          📲 ثبّت التطبيق
-        </button>
-        <a
-          href="#"
-          class="cta-btn"
-          onclick="
-            openAuth('signup');
-            return false;
-          "
-          >ابدأ دلوقتي</a
-        >
-        <a
-          href="#"
-          id="loginLink"
-          style="margin-right: 14px; font-weight: 700; font-size: 14px"
-          onclick="
-            openAuth('login');
-            return false;
-          "
-          >تسجيل الدخول</a
-        >
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button id="installBtn" class="install-btn" onclick="installApp()">
+            📲 ثبّت التطبيق
+          </button>
+          <button
+            id="postJobBtn"
+            class="install-btn show"
+            style="display: none; background: var(--moss)"
+            onclick="openPostJob()"
+          >
+            ➕ انشر وظيفة
+          </button>
+          <a
+            href="#"
+            id="dashLink"
+            style="display: none; font-weight: 700; font-size: 14px"
+            onclick="
+              openDashboard();
+              return false;
+            "
+            >لوحتي</a
+          >
+          <a
+            href="#"
+            id="signupCta"
+            class="cta-btn"
+            onclick="
+              openAuth('signup');
+              return false;
+            "
+            >ابدأ دلوقتي</a
+          >
+          <a
+            href="#"
+            id="loginLink"
+            style="font-weight: 700; font-size: 14px"
+            onclick="
+              openAuth('login');
+              return false;
+            "
+            >تسجيل الدخول</a
+          >
+        </div>
       </nav>
     </header>
 
@@ -749,6 +1083,25 @@
           </div>
         </div>
 
+        <div id="signupExtraFields" style="display: none">
+          <label class="field-label">سنّك</label>
+          <input
+            id="authAge"
+            type="number"
+            min="14"
+            max="70"
+            placeholder="مثال: 19"
+            class="field-input"
+          />
+          <label class="field-label">رقم الواتساب</label>
+          <input
+            id="authPhone"
+            type="tel"
+            placeholder="01012345678"
+            class="field-input"
+          />
+        </div>
+
         <label
           style="
             font-size: 13px;
@@ -839,6 +1192,102 @@
       </div>
     </div>
 
+    <!-- ===== مودال نشر وظيفة ===== -->
+    <div id="postJobOverlay" class="modal-overlay">
+      <div class="modal-box">
+        <button class="close-x" onclick="closeModal('postJobOverlay')">×</button>
+        <h3>انشر وظيفة جديدة</h3>
+        <div id="postJobMsg" class="msg-box"></div>
+
+        <label class="field-label">اسم الوظيفة</label>
+        <input id="jobTitle" class="field-input" placeholder="مثال: كاشير بارت-تايم" />
+
+        <label class="field-label">تفاصيل الوظيفة</label>
+        <textarea id="jobDesc" class="field-textarea" placeholder="اشرح الشغل والمواعيد والمكان..."></textarea>
+
+        <div class="row-2">
+          <div>
+            <label class="field-label">المرتب</label>
+            <input id="jobSalary" class="field-input" placeholder="مثال: 4000 ج / شهر" />
+          </div>
+          <div>
+            <label class="field-label">نوع الشغل</label>
+            <select id="jobCategory" class="field-select">
+              <option value="permanent">وظيفة دائمة</option>
+              <option value="gig">شغل يومي/أسبوعي</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div>
+            <label class="field-label">أقل سن</label>
+            <input id="jobMinAge" type="number" class="field-input" value="18" />
+          </div>
+          <div>
+            <label class="field-label">أكبر سن</label>
+            <input id="jobMaxAge" type="number" class="field-input" value="35" />
+          </div>
+        </div>
+
+        <label class="field-label">المكان</label>
+        <input id="jobLocation" class="field-input" placeholder="مثال: مدينة نصر، القاهرة" />
+
+        <label class="field-label">رقم الواتساب للتواصل</label>
+        <input id="jobWhatsapp" type="tel" class="field-input" placeholder="01012345678" />
+
+        <label class="field-label">فيديو يشرح الوظيفة (اختياري)</label>
+        <input id="jobVideo" type="file" accept="video/*" class="field-input" />
+
+        <button class="submit-btn" onclick="submitJob()">انشر الوظيفة</button>
+      </div>
+    </div>
+
+    <!-- ===== مودال التقديم على وظيفة ===== -->
+    <div id="applyOverlay" class="modal-overlay">
+      <div class="modal-box">
+        <button class="close-x" onclick="closeModal('applyOverlay')">×</button>
+        <h3>قدّم على الوظيفة</h3>
+        <div id="applyMsg" class="msg-box"></div>
+        <p style="font-size: 13.5px; color: #4a5850; margin-bottom: 14px">
+          ارفع فيديو 30 ثانية تعرّف فيه نفسك (اختياري)، أو قدّم على طول.
+        </p>
+        <label class="field-label">فيديو تعريفي (اختياري)</label>
+        <input id="applyVideo" type="file" accept="video/*" class="field-input" />
+        <button class="submit-btn" onclick="submitApplication()">أرسل التقديم</button>
+      </div>
+    </div>
+
+    <!-- ===== مودال لوحة التحكم ===== -->
+    <div id="dashOverlay" class="modal-overlay">
+      <div class="modal-box" style="max-width: 620px">
+        <button class="close-x" onclick="closeModal('dashOverlay')">×</button>
+        <h3 id="dashTitle">لوحتي</h3>
+        <div id="dashContent">
+          <div class="empty-state">جاري التحميل...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== مودال التقييم ===== -->
+    <div id="rateOverlay" class="modal-overlay">
+      <div class="modal-box">
+        <button class="close-x" onclick="closeModal('rateOverlay')">×</button>
+        <h3>قيّم التجربة</h3>
+        <div id="rateMsg" class="msg-box"></div>
+        <div class="stars-input" id="starsInput">
+          <span data-v="1">★</span>
+          <span data-v="2">★</span>
+          <span data-v="3">★</span>
+          <span data-v="4">★</span>
+          <span data-v="5">★</span>
+        </div>
+        <label class="field-label">تعليق (اختياري)</label>
+        <textarea id="rateComment" class="field-textarea" placeholder="اكتب رأيك..."></textarea>
+        <button class="submit-btn" onclick="submitRating()">أرسل التقييم</button>
+      </div>
+    </div>
+
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
@@ -852,8 +1301,8 @@
             واحدة.
           </p>
           <div class="hero-actions">
-            <a href="#" class="cta-btn">سجّل فيديوك</a>
-            <a href="#how" class="cta-outline">أنا صاحب شغل</a>
+            <a href="#" class="cta-btn" onclick="ctaWorker(); return false;">سجّل فيديوك</a>
+            <a href="#" class="cta-outline" onclick="ctaEmployer(); return false;">أنا صاحب شغل</a>
           </div>
         </div>
         <div class="phone-wrap">
@@ -985,17 +1434,22 @@
       </div>
     </section>
 
-    <section id="gigs">
+    <section id="jobs-list">
       <div class="wrap">
-        <div class="gig-strip">
-          <div>
-            <span class="gig-chip">قسم جديد</span>
-            <h2>محتاج فلوس الأسبوع ده؟</h2>
-            <p>
-              شوف شغل يومي أو أسبوعي جنب الوظائف الدائمة، وابدأ اشتغل من بكرة.
-            </p>
+        <div class="section-head" style="margin-bottom: 26px">
+          <span class="section-tag">الوظائف المتاحة</span>
+          <h2>شوف الفرص اللي مناسبة لسنّك دلوقتي</h2>
+        </div>
+        <div class="jobs-toolbar">
+          <div class="tabs">
+            <button class="tab-btn active" data-cat="all" onclick="setJobTab('all', this)">الكل</button>
+            <button class="tab-btn" data-cat="permanent" onclick="setJobTab('permanent', this)">وظائف دائمة</button>
+            <button class="tab-btn" data-cat="gig" onclick="setJobTab('gig', this)">شغل يومي/أسبوعي</button>
           </div>
-          <a href="#" class="gig-cta">شوف الشغل اليومي</a>
+          <div id="ageFilterNote" style="font-size: 13px; color: var(--moss); font-weight: 700; display: none"></div>
+        </div>
+        <div id="jobsGrid" class="jobs-grid">
+          <div class="empty-state">جاري تحميل الوظائف...</div>
         </div>
       </div>
     </section>
@@ -1039,8 +1493,8 @@
           المطلوب.
         </p>
         <div class="final-actions">
-          <a href="#" class="cta-btn">سجّل كـ باحث عن شغل</a>
-          <a href="#" class="cta-outline">سجّل كـ صاحب شغل</a>
+          <a href="#" class="cta-btn" onclick="ctaWorker(); return false;">سجّل كـ باحث عن شغل</a>
+          <a href="#" class="cta-outline" onclick="ctaEmployer(); return false;">سجّل كـ صاحب شغل</a>
         </div>
       </div>
     </section>
@@ -1080,6 +1534,16 @@
         SUPABASE_ANON_KEY,
       );
 
+      // الحالة العامة للتطبيق
+      let currentSession = null;
+      let currentProfile = null; // { id, username, role, age, phone, ... }
+      let activeJobTab = "all";
+      let selectedStars = 0;
+      let rateContext = null; // { toId, applicationId }
+
+      // ============================================
+      // تسجيل الدخول / إنشاء حساب
+      // ============================================
       let authMode = "login"; // 'login' | 'signup'
 
       function openAuth(mode) {
@@ -1101,6 +1565,9 @@
           ? "إنشاء حساب جديد"
           : "تسجيل الدخول";
         document.getElementById("signupOnlyFields").style.display = isSignup
+          ? "block"
+          : "none";
+        document.getElementById("signupExtraFields").style.display = isSignup
           ? "block"
           : "none";
         document.getElementById("authSubmitBtn").textContent = isSignup
@@ -1148,6 +1615,18 @@
           const role = document.querySelector(
             'input[name="roleChoice"]:checked',
           ).value;
+          const age = document.getElementById("authAge").value;
+          const phone = document.getElementById("authPhone").value.trim();
+
+          if (role === "worker" && !age) {
+            showAuthMsg("من فضلك اكتب سنّك", false);
+            return;
+          }
+          if (!phone) {
+            showAuthMsg("من فضلك اكتب رقم الواتساب", false);
+            return;
+          }
+
           const { data, error } = await supabaseClient.auth.signUp({
             email,
             password,
@@ -1157,6 +1636,15 @@
             showAuthMsg("حصل خطأ: " + error.message, false);
             return;
           }
+
+          // نحدّث بيانات البروفايل (السن والتليفون) بعد إنشاء الصف تلقائيًا
+          if (data.user) {
+            await supabaseClient
+              .from("profiles")
+              .update({ age: age ? parseInt(age) : null, phone })
+              .eq("id", data.user.id);
+          }
+
           showAuthMsg("تم إنشاء الحساب بنجاح! جاري تسجيل دخولك...", true);
           setTimeout(() => {
             closeAuth();
@@ -1183,28 +1671,514 @@
         const {
           data: { session },
         } = await supabaseClient.auth.getSession();
+        currentSession = session;
         const loginLink = document.getElementById("loginLink");
+        const signupCta = document.getElementById("signupCta");
+        const dashLink = document.getElementById("dashLink");
+        const postJobBtn = document.getElementById("postJobBtn");
+
         if (session) {
           const { data: profile } = await supabaseClient
             .from("profiles")
-            .select("username, role")
+            .select("*")
             .eq("id", session.user.id)
             .single();
+          currentProfile = profile || null;
+
           loginLink.textContent = profile
             ? `مرحبًا، ${profile.username}`
             : "حسابي";
           loginLink.onclick = async (e) => {
             e.preventDefault();
             await supabaseClient.auth.signOut();
+            currentProfile = null;
+            currentSession = null;
             refreshAuthState();
           };
+          signupCta.style.display = "none";
+          dashLink.style.display = "inline-block";
+          postJobBtn.style.display =
+            profile && profile.role === "employer" ? "inline-block" : "none";
         } else {
+          currentProfile = null;
           loginLink.textContent = "تسجيل الدخول";
           loginLink.onclick = (e) => {
             e.preventDefault();
             openAuth("login");
           };
+          signupCta.style.display = "inline-block";
+          dashLink.style.display = "none";
+          postJobBtn.style.display = "none";
         }
+
+        renderAgeFilterNote();
+        loadJobs();
+      }
+
+      // ============================================
+      // أزرار CTA الذكية
+      // ============================================
+      function ctaWorker() {
+        if (currentSession && currentProfile) {
+          document
+            .getElementById("jobs-list")
+            .scrollIntoView({ behavior: "smooth" });
+        } else {
+          openAuth("signup");
+          setTimeout(() => {
+            const workerRadio = document.querySelector(
+              'input[name="roleChoice"][value="worker"]',
+            );
+            if (workerRadio) workerRadio.checked = true;
+          }, 50);
+        }
+      }
+      function ctaEmployer() {
+        if (currentSession && currentProfile) {
+          if (currentProfile.role === "employer") {
+            openPostJob();
+          } else {
+            alert("الحساب ده مسجّل كباحث عن شغل. سجّل حساب جديد كصاحب شغل.");
+          }
+        } else {
+          openAuth("signup");
+          setTimeout(() => {
+            const empRadio = document.querySelector(
+              'input[name="roleChoice"][value="employer"]',
+            );
+            if (empRadio) empRadio.checked = true;
+          }, 50);
+        }
+      }
+
+      // ============================================
+      // مودالز عامة
+      // ============================================
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("open");
+      }
+      function requireLogin() {
+        if (!currentSession) {
+          openAuth("login");
+          return false;
+        }
+        return true;
+      }
+
+      // ============================================
+      // رفع الفيديوهات لـ Supabase Storage (bucket: videos)
+      // ============================================
+      async function uploadVideo(file, folder) {
+        const ext = file.name.split(".").pop();
+        const path = `${folder}/${currentSession.user.id}-${Date.now()}.${ext}`;
+        const { error } = await supabaseClient.storage
+          .from("videos")
+          .upload(path, file, { upsert: true });
+        if (error) throw error;
+        const { data } = supabaseClient.storage.from("videos").getPublicUrl(path);
+        return data.publicUrl;
+      }
+
+      // ============================================
+      // الوظائف: عرض وفلترة
+      // ============================================
+      function setJobTab(cat, btn) {
+        activeJobTab = cat;
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        loadJobs();
+      }
+
+      function renderAgeFilterNote() {
+        const note = document.getElementById("ageFilterNote");
+        if (currentProfile && currentProfile.role === "worker" && currentProfile.age) {
+          note.style.display = "block";
+          note.textContent = `بنعرضلك الوظائف المفتوحة لسن ${currentProfile.age}`;
+        } else {
+          note.style.display = "none";
+        }
+      }
+
+      async function loadJobs() {
+        const grid = document.getElementById("jobsGrid");
+        grid.innerHTML = '<div class="empty-state">جاري تحميل الوظائف...</div>';
+
+        let query = supabaseClient
+          .from("jobs")
+          .select("*, profiles:employer_id(username, phone, rating_avg)")
+          .eq("status", "open")
+          .order("created_at", { ascending: false });
+
+        if (activeJobTab !== "all") {
+          query = query.eq("category", activeJobTab);
+        }
+        if (currentProfile && currentProfile.role === "worker" && currentProfile.age) {
+          query = query
+            .lte("min_age", currentProfile.age)
+            .gte("max_age", currentProfile.age);
+        }
+
+        const { data: jobs, error } = await query;
+
+        if (error) {
+          grid.innerHTML = `<div class="empty-state">حصل خطأ في تحميل الوظائف: ${error.message}</div>`;
+          return;
+        }
+        if (!jobs || jobs.length === 0) {
+          grid.innerHTML =
+            '<div class="empty-state">مفيش وظائف متاحة دلوقتي. ارجع تاني قريب!</div>';
+          return;
+        }
+
+        // نجيب طلبات المستخدم الحالي عشان نعرف قدّم فين بالفعل
+        let myApplications = [];
+        if (currentSession) {
+          const { data: apps } = await supabaseClient
+            .from("applications")
+            .select("job_id")
+            .eq("worker_id", currentSession.user.id);
+          myApplications = (apps || []).map((a) => a.job_id);
+        }
+
+        grid.innerHTML = jobs
+          .map((job) => {
+            const applied = myApplications.includes(job.id);
+            const isOwner =
+              currentSession && job.employer_id === currentSession.user.id;
+            const empRating =
+              job.profiles && job.profiles.rating_avg
+                ? `⭐ ${Number(job.profiles.rating_avg).toFixed(1)}`
+                : "";
+            return `
+              <div class="job-card">
+                <span class="cat ${job.category === "gig" ? "gig" : ""}">${job.category === "gig" ? "شغل يومي/أسبوعي" : "وظيفة دائمة"}</span>
+                <h3>${escapeHtml(job.title)}</h3>
+                <div class="meta">${escapeHtml(job.description || "").slice(0, 90)}${(job.description || "").length > 90 ? "…" : ""}</div>
+                <div class="meta"><b>المرتب:</b> ${escapeHtml(job.salary || "غير محدد")}</div>
+                <div class="meta"><b>المكان:</b> ${escapeHtml(job.location || "غير محدد")}</div>
+                <div class="age-tag">مناسب لسن ${job.min_age} - ${job.max_age} ${empRating ? " · " + empRating : ""}</div>
+                <button class="apply-btn" ${isOwner ? "disabled" : ""} onclick="${isOwner ? "" : applied ? "" : `openApply('${job.id}')`}">
+                  ${isOwner ? "الوظيفة بتاعتك" : applied ? "✅ اتقدّمت بالفعل" : "قدّم دلوقتي"}
+                </button>
+              </div>`;
+          })
+          .join("");
+      }
+
+      function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.textContent = str || "";
+        return div.innerHTML;
+      }
+
+      // ============================================
+      // نشر وظيفة (صاحب شغل)
+      // ============================================
+      function openPostJob() {
+        if (!requireLogin()) return;
+        if (!currentProfile || currentProfile.role !== "employer") {
+          alert("لازم تكون مسجّل كصاحب شغل عشان تنشر وظيفة.");
+          return;
+        }
+        document.getElementById("postJobOverlay").classList.add("open");
+      }
+
+      async function submitJob() {
+        const title = document.getElementById("jobTitle").value.trim();
+        const description = document.getElementById("jobDesc").value.trim();
+        const salary = document.getElementById("jobSalary").value.trim();
+        const category = document.getElementById("jobCategory").value;
+        const minAge = parseInt(document.getElementById("jobMinAge").value) || 16;
+        const maxAge = parseInt(document.getElementById("jobMaxAge").value) || 60;
+        const location = document.getElementById("jobLocation").value.trim();
+        const whatsapp = document.getElementById("jobWhatsapp").value.trim();
+        const videoFile = document.getElementById("jobVideo").files[0];
+
+        const msg = document.getElementById("postJobMsg");
+        if (!title || !whatsapp) {
+          msg.style.display = "block";
+          msg.style.background = "#fbdcd4";
+          msg.style.color = "#a3341c";
+          msg.textContent = "من فضلك اكتب اسم الوظيفة ورقم الواتساب على الأقل";
+          return;
+        }
+
+        let videoUrl = null;
+        try {
+          if (videoFile) {
+            videoUrl = await uploadVideo(videoFile, "jobs");
+          }
+          const { error } = await supabaseClient.from("jobs").insert({
+            employer_id: currentSession.user.id,
+            title,
+            description,
+            salary,
+            category,
+            min_age: minAge,
+            max_age: maxAge,
+            location,
+            whatsapp,
+            video_url: videoUrl,
+          });
+          if (error) throw error;
+
+          msg.style.display = "block";
+          msg.style.background = "#dbe6df";
+          msg.style.color = "#2f5d4c";
+          msg.textContent = "تم نشر الوظيفة بنجاح!";
+          setTimeout(() => {
+            closeModal("postJobOverlay");
+            msg.style.display = "none";
+            document.getElementById("jobTitle").value = "";
+            document.getElementById("jobDesc").value = "";
+            document.getElementById("jobSalary").value = "";
+            document.getElementById("jobLocation").value = "";
+            document.getElementById("jobWhatsapp").value = "";
+            document.getElementById("jobVideo").value = "";
+            loadJobs();
+          }, 1000);
+        } catch (err) {
+          msg.style.display = "block";
+          msg.style.background = "#fbdcd4";
+          msg.style.color = "#a3341c";
+          msg.textContent = "حصل خطأ: " + err.message;
+        }
+      }
+
+      // ============================================
+      // التقديم على وظيفة (عامل)
+      // ============================================
+      let applyJobId = null;
+      function openApply(jobId) {
+        if (!requireLogin()) return;
+        if (currentProfile && currentProfile.role !== "worker") {
+          alert("التقديم متاح بس لحسابات الباحثين عن شغل.");
+          return;
+        }
+        applyJobId = jobId;
+        document.getElementById("applyOverlay").classList.add("open");
+      }
+
+      async function submitApplication() {
+        const videoFile = document.getElementById("applyVideo").files[0];
+        const msg = document.getElementById("applyMsg");
+        try {
+          let videoUrl = currentProfile ? currentProfile.video_url : null;
+          if (videoFile) {
+            videoUrl = await uploadVideo(videoFile, "applications");
+          }
+          const { error } = await supabaseClient.from("applications").insert({
+            job_id: applyJobId,
+            worker_id: currentSession.user.id,
+            video_url: videoUrl || null,
+          });
+          if (error) throw error;
+
+          msg.style.display = "block";
+          msg.style.background = "#dbe6df";
+          msg.style.color = "#2f5d4c";
+          msg.textContent = "تم إرسال طلبك! صاحب الشغل هيتواصل معاك.";
+          setTimeout(() => {
+            closeModal("applyOverlay");
+            msg.style.display = "none";
+            document.getElementById("applyVideo").value = "";
+            loadJobs();
+          }, 1200);
+        } catch (err) {
+          msg.style.display = "block";
+          msg.style.background = "#fbdcd4";
+          msg.style.color = "#a3341c";
+          msg.textContent = "حصل خطأ: " + err.message;
+        }
+      }
+
+      // ============================================
+      // لوحة التحكم (تختلف حسب الدور)
+      // ============================================
+      async function openDashboard() {
+        if (!requireLogin()) return;
+        document.getElementById("dashOverlay").classList.add("open");
+        const content = document.getElementById("dashContent");
+        content.innerHTML = '<div class="empty-state">جاري التحميل...</div>';
+
+        if (currentProfile.role === "employer") {
+          document.getElementById("dashTitle").textContent = "وظائفي والمتقدمين";
+          await renderEmployerDashboard();
+        } else {
+          document.getElementById("dashTitle").textContent = "طلباتي";
+          await renderWorkerDashboard();
+        }
+      }
+
+      async function renderEmployerDashboard() {
+        const content = document.getElementById("dashContent");
+        const { data: jobs, error } = await supabaseClient
+          .from("jobs")
+          .select("*")
+          .eq("employer_id", currentSession.user.id)
+          .order("created_at", { ascending: false });
+
+        if (error || !jobs || jobs.length === 0) {
+          content.innerHTML = '<div class="empty-state">لسه معندكش وظائف منشورة.</div>';
+          return;
+        }
+
+        let html = "";
+        for (const job of jobs) {
+          const { data: apps } = await supabaseClient
+            .from("applications")
+            .select("*, profiles:worker_id(username, phone, age, rating_avg)")
+            .eq("job_id", job.id)
+            .order("created_at", { ascending: false });
+
+          html += `<div class="dash-item">
+            <div class="head"><b>${escapeHtml(job.title)}</b><span class="status-pill accepted">${job.category === "gig" ? "يومي" : "دائم"}</span></div>
+            <div style="font-size:13px;color:#6b7a72">${(apps || []).length} متقدم</div>`;
+
+          (apps || []).forEach((app) => {
+            const p = app.profiles || {};
+            html += `
+              <div style="border-top:1px solid #eee;margin-top:10px;padding-top:10px">
+                <div class="head">
+                  <span>${escapeHtml(p.username || "مستخدم")} ${p.age ? "· " + p.age + " سنة" : ""}</span>
+                  <span class="status-pill ${app.status}">${statusLabel(app.status)}</span>
+                </div>
+                ${p.rating_avg ? `<div class="rating-line">⭐ ${Number(p.rating_avg).toFixed(1)}</div>` : ""}
+                ${app.video_url ? `<video src="${app.video_url}" controls style="width:100%;border-radius:10px;margin-top:6px;max-height:220px"></video>` : ""}
+                <div class="mini-actions">
+                  ${p.phone ? `<a class="mini-btn whatsapp" target="_blank" href="https://wa.me/${p.phone.replace(/[^0-9]/g, "")}">واتساب</a>` : ""}
+                  ${app.status === "pending" ? `<button class="mini-btn accept" onclick="updateApplication('${app.id}','accepted')">قبول</button><button class="mini-btn reject" onclick="updateApplication('${app.id}','rejected')">رفض</button>` : ""}
+                  ${app.status === "accepted" ? `<button class="mini-btn complete" onclick="updateApplication('${app.id}','completed')">تم إنجاز الشغل</button>` : ""}
+                  ${app.status === "completed" ? `<button class="mini-btn rate" onclick="openRate('${app.worker_id}','${app.id}')">قيّم العامل</button>` : ""}
+                </div>
+              </div>`;
+          });
+          html += `</div>`;
+        }
+        content.innerHTML = html;
+      }
+
+      async function renderWorkerDashboard() {
+        const content = document.getElementById("dashContent");
+        const { data: apps, error } = await supabaseClient
+          .from("applications")
+          .select("*, jobs(title, whatsapp, employer_id, profiles:employer_id(username, rating_avg))")
+          .eq("worker_id", currentSession.user.id)
+          .order("created_at", { ascending: false });
+
+        if (error || !apps || apps.length === 0) {
+          content.innerHTML = '<div class="empty-state">لسه معندكش طلبات تقديم.</div>';
+          return;
+        }
+
+        content.innerHTML = apps
+          .map((app) => {
+            const job = app.jobs || {};
+            const emp = job.profiles || {};
+            return `
+              <div class="dash-item">
+                <div class="head">
+                  <b>${escapeHtml(job.title || "وظيفة محذوفة")}</b>
+                  <span class="status-pill ${app.status}">${statusLabel(app.status)}</span>
+                </div>
+                <div style="font-size:13px;color:#6b7a72">صاحب الشغل: ${escapeHtml(emp.username || "-")} ${emp.rating_avg ? "· ⭐ " + Number(emp.rating_avg).toFixed(1) : ""}</div>
+                <div class="mini-actions">
+                  ${job.whatsapp ? `<a class="mini-btn whatsapp" target="_blank" href="https://wa.me/${job.whatsapp.replace(/[^0-9]/g, "")}">واتساب</a>` : ""}
+                  ${app.status === "completed" ? `<button class="mini-btn rate" onclick="openRate('${job.employer_id}','${app.id}')">قيّم صاحب الشغل</button>` : ""}
+                </div>
+              </div>`;
+          })
+          .join("");
+      }
+
+      function statusLabel(status) {
+        return (
+          {
+            pending: "قيد المراجعة",
+            accepted: "مقبول",
+            rejected: "مرفوض",
+            completed: "تم الإنجاز",
+          }[status] || status
+        );
+      }
+
+      async function updateApplication(appId, status) {
+        const { error } = await supabaseClient
+          .from("applications")
+          .update({ status })
+          .eq("id", appId);
+        if (error) {
+          alert("حصل خطأ: " + error.message);
+          return;
+        }
+        renderEmployerDashboard();
+      }
+
+      // ============================================
+      // التقييمات
+      // ============================================
+      function openRate(toId, applicationId) {
+        rateContext = { toId, applicationId };
+        selectedStars = 0;
+        updateStarsUI();
+        document.getElementById("rateComment").value = "";
+        document.getElementById("rateMsg").style.display = "none";
+        document.getElementById("rateOverlay").classList.add("open");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("#starsInput span").forEach((star) => {
+          star.addEventListener("click", () => {
+            selectedStars = parseInt(star.dataset.v);
+            updateStarsUI();
+          });
+        });
+      });
+
+      function updateStarsUI() {
+        document.querySelectorAll("#starsInput span").forEach((star) => {
+          star.classList.toggle(
+            "active",
+            parseInt(star.dataset.v) <= selectedStars,
+          );
+        });
+      }
+
+      async function submitRating() {
+        const msg = document.getElementById("rateMsg");
+        if (!selectedStars) {
+          msg.style.display = "block";
+          msg.style.background = "#fbdcd4";
+          msg.style.color = "#a3341c";
+          msg.textContent = "من فضلك اختار عدد النجوم";
+          return;
+        }
+        const comment = document.getElementById("rateComment").value.trim();
+        const { error } = await supabaseClient.from("ratings").insert({
+          application_id: rateContext.applicationId,
+          from_id: currentSession.user.id,
+          to_id: rateContext.toId,
+          stars: selectedStars,
+          comment,
+        });
+        if (error) {
+          msg.style.display = "block";
+          msg.style.background = "#fbdcd4";
+          msg.style.color = "#a3341c";
+          msg.textContent = "حصل خطأ: " + error.message;
+          return;
+        }
+        msg.style.display = "block";
+        msg.style.background = "#dbe6df";
+        msg.style.color = "#2f5d4c";
+        msg.textContent = "شكرًا لتقييمك!";
+        setTimeout(() => {
+          closeModal("rateOverlay");
+          if (currentProfile.role === "employer") renderEmployerDashboard();
+          else renderWorkerDashboard();
+        }, 1000);
       }
 
       document.addEventListener("DOMContentLoaded", refreshAuthState);
