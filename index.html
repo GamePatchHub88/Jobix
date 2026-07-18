@@ -2,8 +2,26 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0"
+    />
     <title>Jobix — شغلك يبدأ بفيديو</title>
+    <meta
+      name="description"
+      content="Jobix منصة الشغل اللي بتربط الشباب بأصحاب الشغل بفيديو قصير بدل السيرة الذاتية."
+    />
+
+    <!-- إعدادات PWA: تشغيل نفس الكود كموقع وكتطبيق هاتف قابل للتثبيت -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#12261e" />
+    <link rel="icon" href="icon-192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Jobix" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap"
@@ -33,6 +51,29 @@
         font-family: "Tajawal", sans-serif;
         line-height: 1.7;
         overflow-x: hidden;
+      }
+      /* لما التطبيق يشتغل standalone على الموبايل، بناخد بالنا من مساحات الـ notch */
+      body.standalone header {
+        padding-top: env(safe-area-inset-top);
+      }
+      body.standalone footer {
+        padding-bottom: calc(32px + env(safe-area-inset-bottom));
+      }
+      .install-btn {
+        display: none;
+        background: var(--clay);
+        color: #fff;
+        border: none;
+        padding: 9px 18px;
+        border-radius: 100px;
+        font-weight: 700;
+        font-size: 14px;
+        font-family: inherit;
+        cursor: pointer;
+        margin-inline-end: 10px;
+      }
+      .install-btn.show {
+        display: inline-block;
       }
       h1,
       h2,
@@ -581,6 +622,9 @@
           <a href="#gigs">شغل يومي</a>
           <a href="#ratings">التقييمات</a>
         </div>
+        <button id="installBtn" class="install-btn" onclick="installApp()">
+          📲 ثبّت التطبيق
+        </button>
         <a
           href="#"
           class="cta-btn"
@@ -1164,6 +1208,53 @@
       }
 
       document.addEventListener("DOMContentLoaded", refreshAuthState);
+
+      // ============================================
+      // إعدادات PWA: تسجيل الـ Service Worker + زر تثبيت التطبيق
+      // نفس ملف الكود ده بيشتغل كموقع عادي في المتصفح، وكمان
+      // قابل للتثبيت كتطبيق هاتف (Android/iOS/Desktop) من غير أي تعديل.
+      // ============================================
+
+      // لو الموقع شغال standalone (يعني اتفتح كتطبيق مثبت) نضيف كلاس خاص
+      // عشان مساحات الأمان (notch) في الأعلى والأسفل
+      if (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+      ) {
+        document.body.classList.add("standalone");
+      }
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("sw.js")
+            .catch((err) => console.log("SW registration failed:", err));
+        });
+      }
+
+      let deferredInstallPrompt = null;
+      const installBtn = document.getElementById("installBtn");
+
+      // Chrome/Android بيبعت الحدث ده لما التطبيق يبقى قابل للتثبيت
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        installBtn.classList.add("show");
+      });
+
+      async function installApp() {
+        if (!deferredInstallPrompt) return;
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        installBtn.classList.remove("show");
+      }
+
+      // لما التطبيق يتثبت فعليًا نخفي الزر
+      window.addEventListener("appinstalled", () => {
+        installBtn.classList.remove("show");
+        deferredInstallPrompt = null;
+      });
     </script>
   </body>
 </html>
